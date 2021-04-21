@@ -10,7 +10,7 @@ function AllMeetupsPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('https://react-meetup-api-default-rtdb.firebaseio.com/meetups.json')
+    fetch(process.env.MEETUP_API)
       .then(res => {
         return res.json();
       }).then(data => {
