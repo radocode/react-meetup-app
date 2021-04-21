@@ -9,7 +9,7 @@ function NewMeetupPage() {
 
   function addMeetupHandler(meetupData) {
     fetch(
-      'https://react-meetup-api-default-rtdb.firebaseio.com/meetups.json',
+      process.env.MEETUP_API,
       {
         method: 'POST',
         body: JSON.stringify(meetupData),
