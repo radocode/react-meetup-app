@@ -4,13 +4,15 @@ import MeetupList from "../components/meetups/MeetupList";
 
 function AllMeetupsPage() {
 
+  const { MEETUP_API } = process.env;
+
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMeetups, setLoadedMeetups] = useState([]);
 
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(process.env.MEETUP_API)
+    fetch(MEETUP_API)
       .then(res => {
         return res.json();
       }).then(data => {
