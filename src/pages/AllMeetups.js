@@ -27,6 +27,13 @@ function AllMeetupsPage() {
 
         setIsLoading(false);
         setLoadedMeetups(meetups);
+      })
+      .catch(err => {
+        console.log(err.message);
+        setLoadedMeetups([]);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 

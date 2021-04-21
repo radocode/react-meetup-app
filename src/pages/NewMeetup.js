@@ -19,7 +19,8 @@ function NewMeetupPage() {
       }
     ).then(() => {
       history.replace('/');
-    });
+    })
+    .catch(err => console.log(err.message));
 
   }
 
