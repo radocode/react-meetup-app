@@ -4,7 +4,7 @@ import MeetupList from "../components/meetups/MeetupList";
 
 function AllMeetupsPage() {
 
-  const { MEETUP_API } = process.env;
+  const { REACT_APP_MEETUP_API } = process.env;
 
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMeetups, setLoadedMeetups] = useState([]);
@@ -12,7 +12,7 @@ function AllMeetupsPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(MEETUP_API)
+    fetch(REACT_APP_MEETUP_API)
       .then(res => {
         return res.json();
       }).then(data => {
@@ -30,14 +30,13 @@ function AllMeetupsPage() {
         setIsLoading(false);
         setLoadedMeetups(meetups);
       })
-      .catch(err => {
-        console.log(err.message);
+      .catch(() => {
         setLoadedMeetups([]);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [MEETUP_API]);
+  }, [REACT_APP_MEETUP_API]);
 
   if (isLoading) {
     return (

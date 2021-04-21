@@ -5,13 +5,13 @@ import { useHistory } from 'react-router-dom'
 
 function NewMeetupPage() {
 
-  const { MEETUP_API } = process.env;
+  const { REACT_APP_MEETUP_API } = process.env
 
   const history = useHistory();
 
   function addMeetupHandler(meetupData) {
     fetch(
-      MEETUP_API,
+      REACT_APP_MEETUP_API,
       {
         method: 'POST',
         body: JSON.stringify(meetupData),
