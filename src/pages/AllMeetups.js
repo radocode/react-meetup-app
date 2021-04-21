@@ -37,7 +37,7 @@ function AllMeetupsPage() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [MEETUP_API]);
 
   if (isLoading) {
     return (
